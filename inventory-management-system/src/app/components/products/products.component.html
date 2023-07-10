@@ -1,0 +1,5 @@
+<h1 style="text-align: center;">PRODUCTS</h1>
+
+<ng-container *ngIf="productList !== null && productList.length > 0">
+    <app-data-table [columns]="['id', 'title', 'price', 'description', 'actions']" [data]="(productList)" (updateEvent)="updateProduct($event)"></app-data-table>
+</ng-container> 

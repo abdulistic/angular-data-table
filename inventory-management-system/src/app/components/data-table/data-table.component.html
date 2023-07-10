@@ -1,0 +1,54 @@
+<div style="padding: 20px;">
+
+
+	  <mat-form-field class="example-full-width ">
+		<input matInput [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Type to search">
+	  </mat-form-field>
+		
+	<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8" >
+
+		<ng-container *ngFor="let column of columns" [matColumnDef]="column">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.toUpperCase() }}</th>
+
+			<td mat-cell *matCellDef="let element; let rowIndex = index" cdkDrag cdkDragLockAxis="y" (cdkDragStarted)="onDragStarted(element)">
+				<div class="row-container" [class.dragging]="isDragging && element === draggedItem">
+				  <ng-container *ngIf="!element.isEditing;">
+					<ng-container [ngSwitch]="column.toUpperCase()">
+						<ng-container *ngSwitchCase="'ACTIONS'">
+						  <button mat-icon-button (click)="editRow(rowIndex)">
+							  <mat-icon>edit</mat-icon>
+							</button>
+						</ng-container>
+						<ng-container *ngSwitchDefault>
+						  {{ element[camelize(column)] }}
+						</ng-container>
+					  </ng-container>
+				  </ng-container>
+				  <ng-container *ngIf="element.isEditing;">
+					<ng-container [ngSwitch]="column.toUpperCase()">
+						<ng-container *ngSwitchCase="'ACTIONS'">
+							<button mat-icon-button (click)="updateRow(rowIndex)">
+								<mat-icon>done</mat-icon>
+							  </button>
+						</ng-container>
+						<ng-container *ngSwitchDefault>
+							
+							<mat-form-field class="example-full-width ">
+								<input matInput [(ngModel)]="element[camelize(column)]">
+							  </mat-form-field>
+						</ng-container>
+					  </ng-container>
+				  </ng-container>
+				</div>
+			</td>
+		  </ng-container>
+
+	  <tr mat-header-row *matHeaderRowDef="columns"></tr>
+	  <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+	</table>
+
+	<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+				   showFirstLastButtons
+				   aria-label="Select page of periodic elements">
+	</mat-paginator>
+  </div>

@@ -1,0 +1,10 @@
+<ng-container *ngIf="loading$ | async">
+  <div class="overlay">
+  </div>
+  <mat-progress-spinner color="black" [mode]="'indeterminate'"></mat-progress-spinner> 
+</ng-container>
+<nav style="display: flex; justify-content: center;">
+  <a class="a-button" routerLink="/">USERS</a><br>
+  <a class="a-button" routerLink="/products">PRODUCTS</a>
+</nav>
+<router-outlet></router-outlet>
