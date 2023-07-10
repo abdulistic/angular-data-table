@@ -34,13 +34,10 @@ export class UsersComponent {
 
     this.httpService.updateData(this.httpService.apiRoutes.user.Users, userObj, data.id).subscribe({
       next: (response) => {
-        debugger
-        // this.userList = response as UserViewModel[];
+        console.log(response);
       },
       error: (e) => console.error(e)
     });
-    console.log('Received data from child:', data);
-    // Perform any actions in the parent component
   }
 
 }

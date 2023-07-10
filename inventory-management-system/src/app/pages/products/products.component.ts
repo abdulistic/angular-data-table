@@ -33,15 +33,12 @@ export class ProductsComponent {
 
     this.httpService.updateData(this.httpService.apiRoutes.product.Products, productObj, data.id).subscribe({
       next: (response) => {
-        debugger
-        // this.userList = response as UserViewModel[];
+        console.log(response);
       },
       error: (e) => {
         debugger
         console.log(e);} 
     });
-    console.log('Received data from child:', data);
-    // Perform any actions in the parent component
   }
 
 }
