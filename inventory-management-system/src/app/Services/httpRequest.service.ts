@@ -4,7 +4,6 @@ import { NavigationExtras, Router } from '@angular/router';
 import { FormArray, FormGroup } from '@angular/forms';
 import { apiRoutes } from '../shared/api-routes';
 import { ClientConstants } from '../common/common';
-import { ApiResponse } from '../shared/interfaces/api-response';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -38,7 +37,7 @@ export class httpRequestService {
     let headers = new HttpHeaders();
     let options = { headers: headers };
     return this.httpClient
-      .post<ApiResponse>(this.baseUrl + api, data, options);
+      .post<object>(this.baseUrl + api, data, options);
   }
 
   delete(api: string, data: any) {

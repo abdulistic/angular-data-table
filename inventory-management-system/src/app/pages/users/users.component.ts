@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { httpRequestService } from 'src/app/Services/httpRequest.service';
-import { ResponseStatus } from 'src/app/shared/enums/enums';
-import { ClientConstants } from '../../common/common';
 import { UserViewModel } from 'src/app/VMs/dataTableVM';
 
 @Component({
