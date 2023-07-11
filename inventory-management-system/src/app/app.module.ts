@@ -57,7 +57,7 @@ import { MatListModule } from '@angular/material/list';
   exports: [
     MatListModule
   ],
-  providers: [{
+  providers: [HttpClientModule, {
     provide: HTTP_INTERCEPTORS,
     useClass: NetworkInterceptor,
     multi: true,
