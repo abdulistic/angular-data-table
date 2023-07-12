@@ -1,6 +1,6 @@
 
 <h1 class="user-component" style="text-align: center;">USERS</h1>
 
-<ng-container *ngIf="userList !== null && userList.length > 0">
+<ng-container class="table-component" *ngIf="userList !== null && userList.length > 0">
     <app-data-table [columns]="['id', 'username', 'email', 'phone', 'actions']" [data]="(userList)" (updateEvent)="updateUser($event)"></app-data-table>
 </ng-container>

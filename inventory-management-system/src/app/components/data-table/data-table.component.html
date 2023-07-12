@@ -27,7 +27,7 @@
 				  <ng-container *ngIf="element.isEditing;">
 					<ng-container [ngSwitch]="column.toUpperCase()">
 						<ng-container *ngSwitchCase="'ACTIONS'">
-							<button mat-icon-button (click)="updateRow(rowIndex)">
+							<button data-cy="updateBtn" mat-icon-button (click)="updateRow(rowIndex)">
 								<mat-icon>done</mat-icon>
 							  </button>
 						</ng-container>

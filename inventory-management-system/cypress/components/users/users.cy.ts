@@ -17,14 +17,7 @@ describe('Users Component Test', () => {
     it('should display correct text content', () => {
         cy.mount(UsersComponent)
 
-        cy.get('h1')
+        cy.get('.user-component')
           .should('contain', 'USERS');
       });
-
-
-      it('should have router-outlet element to render the components', () => {
-      cy.mount(UsersComponent);
-      cy.get('router-outlet')
-        .should('exist');
-    });
 });

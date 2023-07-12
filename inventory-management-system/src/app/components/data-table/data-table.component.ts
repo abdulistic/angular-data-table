@@ -1,8 +1,4 @@
-import { AsyncPipe, DecimalPipe, NgFor, NgIf } from '@angular/common';
 import { AfterViewInit, Component, EventEmitter, Input, Output, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { Observable } from 'rxjs';
-import { FormsModule } from '@angular/forms';
-import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
@@ -26,14 +22,14 @@ export class DataTableComponent implements AfterViewInit {
 	dataSource: MatTableDataSource<any>;
 	constructor(private _liveAnnouncer: LiveAnnouncer) {}
 	ngAfterViewInit() {
-		debugger
-    	this.dataSource = new MatTableDataSource(this.data);
     	this.dataSource.sort = this.sort;
-		this.dataSource.paginator = this.paginator;
-		
+		  this.dataSource.paginator = this.paginator;
 	  }
 	
-  
+    ngOnInit()
+    {
+      this.dataSource = new MatTableDataSource(this.data);
+    }
 
   camelize(str: string) {
 	return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
