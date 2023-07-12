@@ -1,7 +1,7 @@
 # angular-data-table
 Instructions to run the project
 1) Clone this project
-2) After a succeeful clone, open this project in Visual Studio Code and run the project using Terminal
+2) After a successful clone, open this project in Visual Studio Code and run the project using Terminal
 3) There are two pages in the application: Users and Products
 4) Landing page displays the Users page
 5) You can change between the pages using the buttons names "USERS" and "PRODUCTS" at the Top of the page.
